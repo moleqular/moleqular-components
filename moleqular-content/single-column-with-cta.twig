@@ -1,0 +1,28 @@
+{% if item.background_colour == 'white' or item.background_colour == 'grey' %}
+	{% set dark = false %}
+{% else %}
+	{% set dark = true %}
+{% endif %}
+
+<!-- Start Single Column with CTA -->
+<div class="o-row {% if item.background_colour %}o-row--{{ item.background_colour }}{% endif %}">
+	<div class="o-container">
+		{% if item.heading %}
+			<h2 class="u-content-width e-heading e-heading--three {{ dark ? 'e-heading--white' : 'e-heading--primary' }}">{{ item.heading }}</h2>
+		{% endif %}
+		{% if item.content %}
+			<div class="u-mt u-mt-2x@ipad u-content-width c-editable {{ dark ? 'c-editable--white' }}">{{ item.content }}</div>
+		{% endif %}
+		{% if item.link %}
+			<div class="u-mt u-mt-2x@ipad">
+				{% if dark %}
+					{% set class = 'e-btn--white' %}
+				{% else %}
+					{% set class = 'e-btn--primary' %}
+				{% endif %}
+				{% include 'elements/button.twig' with { content: item.link.title, link: item.link.url, class: class } %}
+			</div>
+		{% endif %}
+	</div>
+</div>
+<!-- End Single Column with CTA -->

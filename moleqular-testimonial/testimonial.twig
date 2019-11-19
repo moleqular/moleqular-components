@@ -1,0 +1,29 @@
+{% if item.background_colour == 'white' or item.background_colour == 'grey' %}
+	{% set dark = false %}
+{% else %}
+	{% set dark = true %}
+{% endif %}
+
+<!-- Testimonial Start -->
+<div class="o-row o-row--{{ item.background_colour }}">
+	<div class="o-container">
+		{% if item.heading %}
+			<h2 class="e-heading e-heading--three {{ dark ? 'e-heading--white' : 'e-heading--primary' }}">Testimonials.</h2>
+		{% endif %}
+		{% if item.testimonial_slides|length %}
+			<div class="{% if item.heading %}u-mt-2x u-mt-4x@ipad {% endif %} u-content-width o-layout js-testimonial-slider">
+				{% for slide in item.testimonial_slides %}
+					<div class="u-width-2/2 o-layout__item c-testimonial-item">
+						<div class="e-heading e-heading--two {{ dark ? 'e-heading--white' : 'e-heading--primary' }} c-testimonial-item__content">{{ slide.content}}</div>
+						<div class="u-mt u-mt-2x@ipad u-flex u-wrap">
+							<span class="u-mr-quarter {% if dark %}u-font-colour-white{% endif %}">{{ slide.name }},</span>
+							<span {% if dark %}class="u-font-colour-white"{% endif %}>{{ slide.company_info }}</span>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+			<div class="js-testimonial-slider-arrows u-flex u-mt u-mt-2x@ipad {{ dark ? 'white' }}"></div>
+		{% endif %}
+	</div>
+</div>
+<!-- Testimonial End -->

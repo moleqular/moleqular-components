@@ -1,0 +1,29 @@
+{% set path = 'components/items/' ~ view ~ '-item.twig' %}
+
+{% if item.required_options.grid == 2 %}
+    {% set grids = 'u-width-1/2@ipad' %}
+{% elseif item.required_options.grid > 2 %}
+    {% set grids = 'u-width-1/2@ipad u-width-1/' ~ item.required_options.grid ~ '@ipad-pro' %}
+{% endif %}
+
+{% set background = item.required_options.background_colour %}
+
+<!-- Multimedia Start -->
+<div class="o-row o-row--{{ background }}">
+    <div class="o-container">
+        <h2 class="e-heading e-heading--three {{ background == 'primary' or background == 'secondary' ? 'e-heading--white' : 'e-heading--primary' }}">{{ item.custom_heading ? item.heading : heading }}</h2>
+        {% if results|length %}
+            <div class="u-mt o-layout o-layout--gutter">
+                {% for card in results %}
+                    {% if view != 'card' %}
+                        {% set card = TimberPost(card) %}
+                    {% endif %}
+                    <div class="{{ grids }} u-mt o-layout__item">    
+                        {% include path with { selector: card, background: background } %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</div>
+<!-- Multimedia End -->

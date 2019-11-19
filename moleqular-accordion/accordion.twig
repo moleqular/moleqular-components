@@ -1,0 +1,18 @@
+<div class="o-row o-row--{{ item.background_colour }}">
+    <div class="o-container">
+        <h2 class="e-heading e-heading--two {{ item.background_colour == 'white' or item.background_colour == 'grey' ? 'e-heading--primary' : 'e-heading--white' }}">{{ item.heading }}</h2>
+        {% if item.accordion_selection|length %}
+            <div class="o-layout u-content-width">
+                {% for accordion in item.accordion_selection %}
+                    <div class="u-mt u-mt-2x@ipad-pro o-layout__item c-accordion-item {{ item.background_colour == 'white' or item.background_colour == 'grey' ? '' : 'light' }}">
+                        <div class="u-mt-2x u-flex u-space-between u-v-center c-accordion-item__heading js-accordion-trigger">
+                            <h4 class="e-heading e-heading--four {{ item.background_colour == 'white' or item.background_colour == 'grey' ? 'e-heading--primary' : 'e-heading--white' }}">{{ accordion.heading ? accordion.heading }}</h4>
+                            <i class="material-icons">arrow_drop_down</i>
+                        </div>
+                        <div class="u-mt u-mt-2x@ipad-pro c-accordion-item__content {{ item.background_colour == 'white' or item.background_colour == 'grey' ? '' : 'u-font-colour-white' }}">{{ accordion.content ? accordion.content }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</div>

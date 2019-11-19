@@ -1,0 +1,56 @@
+/* ============================================================
+    * Components - Card
+============================================================ */
+
+/**
+ * Global style that is used to style case studies and news 
+ * blocks for example.
+*/
+
+.c-card {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+
+    &--grey { background-color: $grey-light; }
+
+    &--white { background-color: $white; }
+    
+}
+
+
+
+
+/* ============================================================
+    * Post Variation
+============================================================ */
+
+/**
+ * The styles for a news post block
+*/
+
+.c-card--post {
+
+    .c-card__link { display: block; }
+    
+
+    .c-card__image {
+        @include aspect-ratio(16,9);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: $colour-secondary;
+    }
+
+
+    .c-card__excerpt {
+        display: none;
+
+        @include by-device(iphone-max) {
+            display: block;
+        }
+        
+    }
+
+}

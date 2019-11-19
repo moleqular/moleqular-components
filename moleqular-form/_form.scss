@@ -1,0 +1,147 @@
+/* ============================================================
+    * Elements - Form / Ninja Styles
+============================================================ */
+
+/**
+ * Ninja form styles
+*/
+
+.nf-form-cont {
+    width: 100%;
+    
+    .ninja-forms-req-symbol {
+        color: red;
+    }
+
+
+    .nf-form-fields-required { 
+        font-size: $font-size-small;
+    }
+
+
+    .nf-field {
+        margin-top: $spacing-base;
+
+        &:first-of-type {
+            margin-top: 0;
+        }
+
+    }
+    
+
+    .nf-form-content { 
+        margin: 0;
+        padding: 0;
+        margin-top: $spacing-base;
+
+
+        .nf-field-label {
+            margin-bottom: 0;
+
+            label {
+                font-weight: $font-regular;
+                font-size: $font-size-body;
+            }
+
+        }
+
+
+        .nf-field-element {
+            margin-top: $spacing-half;
+                
+            &::after { display: none; }
+
+            input[type="text"],
+            input[type="tel"],
+            input[type="email"],
+            textarea {
+            	background-color: transparent;
+                outline: 0;
+                font-size: $font-size-body;
+                appearance: none;
+                border-radius: 0;
+                padding: 15px;
+                width: 100%;
+                border: 2px solid $black;
+
+                &::placeholder {
+                    color: rgba($black, .5);
+                }
+            }
+            
+
+            textarea {
+                height: 200px;
+            }
+
+
+            input[type="button"] {
+                @extend .e-btn;
+                @extend .e-btn--primary;
+                border-radius: 0;
+            }
+
+        }
+
+
+        .nf-error {
+            margin-top: $spacing-half;
+
+            .nf-error-msg {
+                background-color: red;
+                color: $white;
+                display: inline-block;
+                padding: $spacing-quarter $spacing-half;
+                font-size: $font-size-small;
+                font-weight: $font-regular;
+                border-radius: 0;
+            } 
+
+        }
+
+    }
+
+    @include by-device(ipad-pro) {
+        width: 70%;
+        margin-top: $spacing-2x;
+    }
+
+}
+
+.nf-response-msg {
+
+    p {
+        background-color: $white;
+        color: $black;
+        display: inline-block;
+        padding: $spacing-half $spacing-base;
+        margin: $spacing-base 0;
+        font-size: $font-size-small;
+        font-weight: $font-bold;
+        text-transform: uppercase;
+        border-radius: 0;
+    }
+
+}
+
+
+.nf-form-hp {
+    position: absolute;
+    visibility: hidden;
+}
+
+
+#nf-form-errors-1 {
+    margin-top: $spacing-base;
+
+    .nf-error-msg {
+        background-color: red;
+        color: $white;
+        display: inline-block;
+        padding: $spacing-quarter $spacing-half;
+        border-radius: 0;
+        font-size: $font-size-small;
+        font-weight: $font-regular;
+    }
+    
+}

@@ -1,0 +1,28 @@
+
+<!-- Banner Start -->
+<section class="c-banner">
+	{% if item.banner_slides|length > 1 %}
+		<div class="u-mb-0 js-banner-slider">
+	{% endif %}
+	{% for slide in item.banner_slides %}
+		<div class="c-banner__item" {% if slide.background_image %}style="background-image: url('{{ TimberImage(slide.background_image)|resize(2000) }}');"{% endif %}>
+			<div class="u-above o-row">
+				<div class="o-container">
+					<h1 class="u-content-width u-mt-5x e-heading e-heading--one e-heading--white">{{ slide.heading ? slide.heading : post.post_title }}</h1>
+					{% if slide.content %}<p class="u-content-width u-mt u-font-colour-white">{{ slide.content }}</p>{% endif %}
+					{% if slide.call_to_action.title and slide.call_to_action.url %}
+						<div class="u-mt u-mt-2x@ipad-pro {% if item.banner_slides|length > 1 %}u-mb-2x u-mb-3x@ipad-pro{% endif %}">
+							{% include 'elements/button.twig' with { content: slide.call_to_action.title, link: slide.call_to_action.url, class: 'e-btn--white' } %}
+						</div>
+					{% endif %}
+				</div>
+			</div>
+			<div class="u-darken"></div>
+		</div>
+	{% endfor %}
+	{% if item.banner_slides|length > 1 %}
+		</div>
+		<div class="js-dots-container o-container  e-dots"></div>
+	{% endif %}
+</section>
+<!-- Banner End -->

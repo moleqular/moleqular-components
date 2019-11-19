@@ -1,0 +1,33 @@
+/* ============================================================
+    * Components - Accordion
+============================================================ */
+
+/**
+ * Accordion dropdown styles to be used for FAQ's for example.
+*/
+
+.c-accordion-item {
+    border-top: 2px solid rgba($colour-primary, .2);
+    
+    
+    &.light {
+        border-top: 2px solid rgba($white, .5);
+
+        i { color: $white }
+        
+    }
+
+
+    &__heading {
+        cursor: pointer;
+
+        &.active {
+            i { transform: rotate(180deg); }
+        }
+
+    }
+
+
+    &__content { display: none; }
+
+}
