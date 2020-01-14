@@ -6,7 +6,7 @@
             {% if item.category_selection|length %}
                 <div class="js-category-slider" {{ options.animation }}>
                     {% for category in item.category_selection %}
-                        {% include "components/items/product-category-item.twig" with { selector: category } %}
+                        {% include "path/to/item" with { selector: category } %}
                     {% endfor %}
                 </div>
                 <div class="js-category-slider-arrows" {{ options.animation }}></div>
