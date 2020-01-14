@@ -4,13 +4,13 @@
         <h2 class="u-mb u-mb-2x@laptop u-block u-tac e-heading e-heading--two e-heading--black" {{ options.animation }}>{{ item.heading }}</h2>
         <div class="u-pos-rel">
             {% if item.category_selection|length %}
-                <div class="js-category-slider" {{ options.animation }}>
+                <div class="js-category-slider">
                     {% for category in item.category_selection %}
                         {% include "path/to/item" with { selector: category } %}
                     {% endfor %}
                 </div>
-                <div class="js-category-slider-arrows" {{ options.animation }}></div>
-                <div class="js-category-slider-dots" {{ options.animation }}></div>
+                <div class="js-category-slider-arrows"></div>
+                <div class="js-category-slider-dots"></div>
             {% endif %}
         </div>
     </div>
