@@ -6,7 +6,7 @@
             {% if item.category_selection|length %}
                 <div class="js-category-slider">
                     {% for category in item.category_selection %}
-                        {% include "path/to/item" with { selector: category } %}
+                        {% include "path/to/file" with { selector: category } %}
                     {% endfor %}
                 </div>
                 <div class="js-category-slider-arrows"></div>

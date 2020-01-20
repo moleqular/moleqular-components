@@ -1,0 +1,25 @@
+<!-- Product Feed -->
+<div class="o-row o-row--white c-product-feed u-no-overflow">
+    <div class="o-container">
+        <div class="u-flex u-wrap u-no-wrap@ipad u-v-center u-h-center">
+            {% for tab in item.feed_selection %}
+                <h2 class="e-heading e-heading--two u-mt-half u-mt-0@ipad u-mr u-ml c-product-feed__tab {% if loop.first %}active{% endif %}" data-id="{{ loop.index }}">{{ tab.tab_title }}</h2>
+            {% endfor %}
+        </div>
+        <div class="u-mt-2x u-mt-3x@laptop u-pos-rel">
+            {% for item in item.feed_selection %}
+                <div class="c-product-feed__wrapper {% if loop.first %}active show{% endif %}" data-id="{{ loop.index }}">
+                    <div class="u-pos-rel">
+                        <div class="js-product-feed-slider">
+                            {% for card in fn('get_products_by_id', 8, item.product_selection, options.default_delivery_product) %}
+                                {% include "path/to/file" with { selector: card } %}
+                            {% endfor %}
+                        </div>
+                        <div class="js-product-feed-slider-arrows"></div>
+                        <div class="js-product-feed-slider-dots"></div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
